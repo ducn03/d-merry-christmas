@@ -42,7 +42,8 @@
         .title {
             font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
-            background: linear-gradient(135deg, #ff6b9d, #c06c84, #f67280, #ffa07a);
+            /* Màu đỏ và vàng Gold chủ đạo */
+            background: linear-gradient(135deg, #10b981, #10b981);
             background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -81,24 +82,16 @@
         }
 
         .message strong {
-            color: #ff6b9d;
+            color: #10b981;
             font-weight: 600;
         }
 
         .message-center {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-
-        .message-center strong {
-            color: #ff6b9d;
-            font-weight: 600;
+            text-align: center;
         }
 
         .heart-btn {
-            background: linear-gradient(135deg, #ff6b9d, #c06c84);
+            background: linear-gradient(135deg, #10b981);
             color: white;
             border: none;
             padding: 18px 45px;
@@ -132,7 +125,7 @@
 
         .heart-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+            /* box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6); */
         }
 
         .heart-btn span {
@@ -187,7 +180,7 @@
         }
 
         .love-counter span {
-            color: #ff6b9d;
+            color: #10b981;
             font-weight: 700;
             font-size: 1.2em;
         }
@@ -206,18 +199,21 @@
         <h1 class="title">🎄 Merry Christmas</h1>
         
         <div class="message-card">
-            <p class="message-center">
-                Thư ơi! 🎄
-            </p>
             <p class="message">
-                Giáng sinh đến rồi, chúc Thư có một mùa lễ thật bình an và ấm áp bên <b>gia đình cùng những người bạn thân thiết</b>.<br><br>
-                Hy vọng Thư luôn giữ được sự lạc quan, rạng rỡ và có thêm thật nhiều kỷ niệm đẹp trong những ngày cuối năm này.
-            <p class="message-center">
-                <strong>Merry Christmas! 🎅✨</strong><br>
-            </p>
+                Thư ơii ! 🎄
+                <br><br>
 
+                Giáng sinh đến rồi, chúc Thư có một mùa lễ thật bình an và ấm áp bên <b>gia đình cùng những người bạn thân thiết</b>.<br>
+                Hy vọng Thư luôn giữ được sự lạc quan, rạng rỡ và có thêm thật nhiều kỷ niệm đẹp trong những ngày cuối năm này.
+                <br><br>
+
+                <strong>Merry Christmas! 🎅✨</strong><br>
+                <strong>Tui tên Đức 👉️👈</strong><br>
+            </p>
+            
+            <br>
             <button class="heart-btn" id="loveBtn">
-                <span>🎁 Nhấn vào đây nè! 🎁</span>
+                <span>Nhấn vào đây nè! 🎁🥑</span>
             </button>
 
             <div class="love-counter">
@@ -345,21 +341,33 @@
             }, 100);
             
             // Change message after 10 clicks
-            if (loveCount === 10) {
+            if (loveCount === 1) {
                 const message = document.querySelector('.message');
                 message.innerHTML = `
-                    Wow! Em đã nhấn ${loveCount} lần rồi! 🥰<br><br>
-                    Anh biết em rất yêu anh mà! 😘<br>
-                    <strong>I love you so much, my princess! 👑💕</strong>
+                    Hehe! Thư tò mò quá nhỉ! 😄<br><br>
+                    Mỗi lần nhấn là mỗi lần Đức gửi gắm thêm sự yêu thương đến Thư đó! 🍀<br><br>
+                    <strong>Cứ nhấn tiếp đi nha! ✨</strong>
                 `;
             }
             
-            if (loveCount === 20) {
+            if (loveCount === 5) {
                 const message = document.querySelector('.message');
                 message.innerHTML = `
-                    ${loveCount} trái tim rồi! 😍<br><br>
-                    Em có biết là anh yêu em nhiều gấp vạn lần số này không? 🥺<br>
-                    <strong>Forever and always, my love! 💖✨</strong>
+                    Wow ${loveCount} lần rồi! 🎄<br><br>
+                    Có vẻ Thư thích cái này nhỉ? Hehe 😄<br><br>
+                    Dạo này trời tối là bắt đầu lạnh rồi đó, Thư đi ra ngoài nhớ mặc ấm và giữ gìn sức khỏe nha<br><br>
+        
+                    <strong>Ráng đừng để bị ốm đó 💚</strong>
+                `;
+            }
+
+            if (loveCount === 10) {
+                const message = document.querySelector('.message');
+                message.innerHTML = `
+                    ${loveCount} lần rồi nè! 🎁<br><br>
+                    Cảm ơn Thư đã dành thời gian chơi cái này! 🥰<br><br>
+                        Cũng muộn rồi, chúc Thư có một giấc ngủ thật ngon và những giấc mơ đẹp 🥰<br><br>
+                        <strong>Thư ngủ ngon 💚</strong><br>
                 `;
             }
         });
