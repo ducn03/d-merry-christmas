@@ -2,13 +2,17 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" 
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Merry Christmas 💕</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -37,6 +41,7 @@
             padding: 20px;
             max-width: 600px;
             width: 90%;
+            transform-origin: center center;
         }
 
         .title {
@@ -91,7 +96,7 @@
         }
 
         .heart-btn {
-            background: linear-gradient(135deg, #10b981);
+            background: linear-gradient(135deg, #10b981, #10b981);
             color: white;
             border: none;
             padding: 18px 45px;
@@ -190,11 +195,24 @@
                 padding: 30px 20px;
             }
         }
+
+        .scale-wrapper {
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
     </style>
 </head>
 <body>
     <canvas id="snowCanvas"></canvas>
 
+    <div class="scale-wrapper">
     <div class="container">
         <h1 class="title">🎄 Merry Christmas</h1>
         
@@ -220,6 +238,7 @@
                 Đã gửi <span id="counter">0</span> sự yêu thương cho Minh Thư! 💕
             </div>
         </div>
+    </div>
     </div>
 
     <script>
@@ -386,5 +405,36 @@
             canvas.height = window.innerHeight;
         });
     </script>
+    <script>
+    // Disable double tap zoom
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+
+    // Disable pinch zoom
+    document.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+    });
+</script>
+<script>
+    function scaleToFit() {
+        const container = document.querySelector('.container');
+        const scaleX = window.innerWidth / 600;   // 600 = max-width container
+        const scaleY = window.innerHeight / 800;  // 800 = chiều cao design gốc
+
+        const scale = Math.min(scaleX, scaleY, 1);
+
+        container.style.transform = `scale(${scale})`;
+    }
+
+    window.addEventListener('resize', scaleToFit);
+    scaleToFit();
+</script>
+
 </body>
 </html>
