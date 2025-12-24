@@ -231,7 +231,7 @@
             
             <br>
             <button class="heart-btn" id="loveBtn">
-                <span>Nhấn vào đây nè! 🎁🥑</span>
+                <span>Nhấn vào đây nè! 🥑</span>
             </button>
 
             <div class="love-counter">
@@ -410,7 +410,7 @@
     let lastTouchEnd = 0;
     document.addEventListener('touchend', function (event) {
         const now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
+        if (now - lastTouchEnd <= 0.5) {
             event.preventDefault();
         }
         lastTouchEnd = now;
@@ -424,8 +424,8 @@
 <script>
     function scaleToFit() {
         const container = document.querySelector('.container');
-        const scaleX = window.innerWidth / 500;   // 600 = max-width container
-        const scaleY = window.innerHeight / 700;  // 800 = chiều cao design gốc
+        const scaleX = window.innerWidth / 450;   // 600 = max-width container
+        const scaleY = window.innerHeight / 650;  // 800 = chiều cao design gốc
 
         const scale = Math.min(scaleX, scaleY, 1);
 
