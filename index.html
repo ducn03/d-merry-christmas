@@ -75,11 +75,24 @@
         .message {
             color: rgba(255, 255, 255, 0.95);
             font-size: clamp(1rem, 2.5vw, 1.2rem);
+            text-align: left;
             line-height: 1.8;
             margin-bottom: 25px;
         }
 
         .message strong {
+            color: #ff6b9d;
+            font-weight: 600;
+        }
+
+        .message-center {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .message-center strong {
             color: #ff6b9d;
             font-weight: 600;
         }
@@ -193,19 +206,22 @@
         <h1 class="title">🎄 Merry Christmas</h1>
         
         <div class="message-card">
+            <p class="message-center">
+                Thư ơi! 🎄
+            </p>
             <p class="message">
-                Em yêu ơi! 💝<br><br>
-                Trong ánh đèn lung linh của mùa Giáng Sinh,<br>
-                anh muốn gửi đến em những lời chúc ngọt ngào nhất.<br><br>
-                <strong>Merry Christmas và chúc em luôn hạnh phúc bên anh! 🎅✨</strong>
+                Giáng sinh đến rồi, chúc Thư có một mùa lễ thật bình an và ấm áp bên <b>gia đình cùng những người bạn thân thiết</b>.<br><br>
+                Hy vọng Thư luôn giữ được sự lạc quan, rạng rỡ và có thêm thật nhiều kỷ niệm đẹp trong những ngày cuối năm này.
+            <p class="message-center">
+                <strong>Merry Christmas! 🎅✨</strong><br>
             </p>
 
             <button class="heart-btn" id="loveBtn">
-                <span>💖 Nhấn vào đây nè! 💖</span>
+                <span>🎁 Nhấn vào đây nè! 🎁</span>
             </button>
 
             <div class="love-counter">
-                Đã gửi <span id="counter">0</span> trái tim cho em! 💕
+                Đã gửi <span id="counter">0</span> sự yêu thương cho Minh Thư! 💕
             </div>
         </div>
     </div>
@@ -266,7 +282,12 @@
         const counter = document.getElementById('counter');
 
         function createFloatingHeart(x, y) {
-            const hearts = ['💕', '💖', '💗', '💝', '💘', '❤️', '🩷'];
+            // const hearts = ['💕', '💖', '💗', '💝', '💘', '❤️', '🩷'];
+            const hearts = [
+                '❄️', '✨', '🌟', '🎄', '🎁', '🍀', '⛄', '🦌', 
+                '🧣', '☕', '🔔', '🌙', '🕯️', '🍪', '🎈', '🎼', 
+                '🎐', '🌌', '🕊️', '🍰', '🧸', '🍭', '🌠'
+            ];
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
             heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
